@@ -1,1 +1,1 @@
-BMI Calculator with a custom dark theme.
+BMI Calculator with a custom dark theme and custom widgets.
