@@ -19,8 +19,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +36,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        maleCardColor == inactiveCardColor
-                            ? maleCardColor = activeCardColor
-                            : maleCardColor = inactiveCardColor;
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableCard(
-                      color: maleCardColor,
+                      color: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inactiveCardColor,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'ER',
@@ -55,13 +54,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        femaleCardColor == inactiveCardColor
-                            ? femaleCardColor = activeCardColor
-                            : femaleCardColor = inactiveCardColor;
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableCard(
-                      color: femaleCardColor,
+                      color: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inactiveCardColor,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'AVRAD',
